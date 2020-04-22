@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.truper.samples</groupId>
+  <artifactId>ws-rest-product-frameworks</artifactId>
+  <version>1.0.0</version>
+  <packaging>war</packaging>
+  <name>Servicios para samples APP</name>
+  <description>Services Sample APP</description>
+  
+  <properties>
+  	<java.version>1.7</java.version>
+  	<commons.dbcp.version>1.4</commons.dbcp.version>
+  	<lombok.version>1.16.6</lombok.version>
+  	<log4j.version>1.2.17</log4j.version>
+  	<junit.version>4.12</junit.version>
+  	<version.org.springframework.security>4.0.4.RELEASE</version.org.springframework.security>
+  	<version.org.springframework>4.0.7.RELEASE</version.org.springframework>
+  	<version.org.hibernate>4.2.21.Final</version.org.hibernate>
+  </properties>
+  
+  <repositories>
+  	<repository>
+		<id>internal</id>
+		<name>TRUPER Repository</name>
+		<url>http://172.20.3.18:9090/repository/internal/</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+		</snapshots>
+	</repository>
+  </repositories>
+  
+  <dependencies>
+  	
+  	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>6.0.6</version>
+	</dependency>
+  
+  	<dependency>
+  		<groupId>org.projectlombok</groupId>
+  		<artifactId>lombok</artifactId>
+  		<version>${lombok.version}</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>${log4j.version}</version>
+  	</dependency>
+  	
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit.version}</version>
+  	</dependency>
+  	
+  	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+		
+	<!-- Spring Security -->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>${version.org.springframework.security}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${version.org.springframework.security}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.security.oauth</groupId>
+		<artifactId>spring-security-oauth2</artifactId>
+		<version>1.0.0.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.2.2</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.10</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>commons-httpclient</groupId>
+		<artifactId>commons-httpclient</artifactId>
+		<version>3.1</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${version.org.springframework}</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
+    	<version>${version.org.springframework}</version>
+    	<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${version.org.hibernate}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>${commons.dbcp.version}</version>
+		<!-- 
+		<scope>provided</scope>
+		-->
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.0.1</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.w3c/dom -->
+	<dependency>
+    	<groupId>org.w3c</groupId>
+    	<artifactId>dom</artifactId>
+    	<version>2.3.0-jaxb-1.0.6</version>
+	</dependency>
+	
+  </dependencies>
+  
+   <build>
+  	<finalName>ws-rest-product-frameworks</finalName>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+  			<artifactId>tomcat7-maven-plugin</artifactId>
+  			<version>2.2</version>
+  			<configuration>
+  				<port>8899</port>
+  				<path>/micro_app_rest_full</path>
+  				<systemProperties>
+  				</systemProperties>
+  				<contextReloadable>true</contextReloadable>
+			</configuration>
+		</plugin>
+	
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.5</version>
+			<configuration>
+				<source>${java.version}</source>
+				<target>${java.version}</target>
+			</configuration>
+  		</plugin>
+  		
+  	</plugins>
+  </build>
+  
+</project>
