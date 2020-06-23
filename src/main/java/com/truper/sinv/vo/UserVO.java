@@ -13,46 +13,47 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author cgarcias
- * Extiende de Serializable para poder almacenar el objeto en session y no tener problemas al persistirla
- * Extiende de UserDetails para poder leer las variables desde spring y poder realizar la autenticación correctamente
+ * @author cgarcias Extiende de Serializable para poder almacenar el objeto en
+ *         session y no tener problemas al persistirla Extiende de UserDetails
+ *         para poder leer las variables desde spring y poder realizar la
+ *         autenticaciï¿½n correctamente
  */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class UserVO implements java.io.Serializable, UserDetails {
-	
+
 	private static final long serialVersionUID = 1123231449857349875L;
-	
+
 	private String user;
-	
+
 	@JsonIgnore
 	private String password;
-	
+
 	private String nombre;
-	
+
 	private String apellidos;
-	
+
 	private String token;
-	
+
 	private Map<String, Boolean> roles;
-	
+
 	private String rol;
-	
+
 	private Collection<? extends GrantedAuthority> aut;
-	
-	public UserVO(String user, String password){
+
+	public UserVO(String user, String password) {
 		this.user = user;
 		this.password = password;
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return aut;
 	}
-	
-	public void setAuthorities(Collection<? extends GrantedAuthority> aut){
+
+	public void setAuthorities(Collection<? extends GrantedAuthority> aut) {
 		this.aut = aut;
 	}
 
@@ -62,22 +63,22 @@ public class UserVO implements java.io.Serializable, UserDetails {
 	}
 
 	@Override
-    public boolean isAccountNonExpired(){
-        return true;
-    }
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isAccountNonLocked(){
-        return true;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired(){
-        return true;
-    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled(){
-        return true;
-    }
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 }
